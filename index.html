@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trình xem Video 360 Độ</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <video id="video360" src="1.mp4" loop="true" crossorigin="anonymous" playsinline></video>
+      </a-assets>
+      
+      <a-videosphere src="#video360" rotation="0 -90 0"></a-videosphere>
+      
+      <a-camera position="0 0 0"></a-camera>
+    </a-scene>
+
+    <script>
+      document.querySelector('a-scene').addEventListener('click', function () {
+        const video = document.querySelector('#video360');
+        if (video.paused) {
+          video.play();
+        }
+      });
+    </script>
+  </body>
+</html>
